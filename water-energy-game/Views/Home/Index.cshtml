@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Climate Adaptation Game";
+}
+<link rel="stylesheet" href="~/css/styless.css" asp-append-version="true" />
+
+
+
+    <div class="main-menu">
+        <h1 class="game-title">Climate Adaptation Game</h1>
+        <div class="buttons">
+            <button class="menu-button" id="start-game">Start Game</button>
+            <button class="menu-button" id="continue-game" disabled>Continue</button>
+            <button class="menu-button" id="save-game" disabled>Save</button>
+        </div>
+        <div class="info-button">
+            <button id="info">Information</button>
+        </div>
+    </div>
+
+<div id="info-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Information</h2>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="general">General Information</button>
+            <button class="tab-btn" data-tab="teachers">Information for Teachers</button>
+        </div>
+        <div class="tab-content" id="general">
+            <p>Welcome to our town - Weatherton. Your mission is to help us work with climate adaptation.</p>
+            <p>
+                The aim of this game is to get an understanding of how society can adapt to climate change.
+                The game requires no preparation and takes approximately 30-45 minutes to play.
+                If you want to play as a group, we recommend a discussion about your experiences of trying to adapt the city.
+            </p>
+            <p>
+                Serious gaming is a tool for enhancing our ability to analyze complex contexts.
+                It is commonly used to visualize background and causations for a particular phenomenon.
+                Hopefully, the game will create curiosity and an interest in learning more about climate change and adaptation.
+            </p>
+        </div>
+        <div class="tab-content hidden" id="teachers">
+            <p>The causes and effects of climate change can be used for further scientific studies.</p>
+            <p>
+                Questions about adaptation and politics can be used in social studies lessons.
+                The discussions could be about economical, ethical, and technical abilities to build a sustainable society in a changing climate.
+            </p>
+            <p>You can find out more about climate changes and adaptation at SMHI.se and the Swedish portal.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- نافذة الخيارات -->
+<div id="game-options-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-options">&times;</span>
+        <h2>Game Options</h2>
+        <div class="difficulty">
+            <h3>Difficulty</h3>
+            <div class="difficulty-options">
+                <button class="difficulty-btn active" data-level="Easy">Easy (RCP 2.6)</button>
+                <button class="difficulty-btn" data-level="Medium">Medium (RCP 4.5)</button>
+                <button class="difficulty-btn" data-level="Hard">Hard (RCP 8.5)</button>
+            </div>
+        </div>
+        <div class="settings">
+            <h3>Settings</h3>
+            <label><input type="checkbox" id="skip-intro"> Skip the introduction</label>
+            <br>
+            <label><input type="checkbox" id="show-news" checked> Show news</label>
+        </div>
+        <button id="confirm-start" class="menu-button">Start game</button>
+    </div>
+</div>
+
+<script src="~/js/script.js"></script>

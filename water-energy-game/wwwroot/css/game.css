@@ -1,0 +1,467 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15%;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.goal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+    .goal img {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.3s;
+    }
+
+    .goal:hover {
+        transform: scale(1.1);
+    }
+
+.goal-underline {
+    width: 30px;
+    height: 5px;
+    border-radius: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.goal:hover .goal-underline {
+    transform: scaleX(1.5);
+}
+
+.health-underline {
+    background-color: #4CAF50;
+}
+
+.water-underline {
+    background-color: #03A9F4;
+}
+
+.energy-underline {
+    background-color: #FFC107;
+}
+
+.cities-underline {
+    background-color: #FF5722;
+}
+
+.land-underline {
+    background-color: #8BC34A;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #e0f7fa;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #E0E0E0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid #CCCCCC;
+    padding: 5px;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.actions-section {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    background-color: #90CAF9;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+    .action-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .action-button:hover {
+        transform: scale(1.1);
+        background-color: #64B5F6;
+    }
+
+
+
+.map-container {
+    flex: 1;
+    display: flex;
+    background-image: url('/img/DZhNT0he.svg');
+    background-size: cover; /* لتغطية المساحة بالكامل */
+    background-position: center; /* لتركيز الصورة في المنتصف */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+    position: relative;
+}
+.map-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.details-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* يمكن تعديل الارتفاع حسب الحاجة */
+    background-color: #f0f0f0;
+}
+
+.button {
+    position: absolute;
+    padding: 30px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button1 {
+    top: 50%;
+    left: 2%;
+    background-color: #4CAF50;
+    background-image: url('/img/2.svg'); /* مسار الصورة للزر الأول */
+    background-position: center; /* لتركيز الصورة في المنتصف */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+}
+
+
+.button2 {
+    top: 90%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    background-image: url('/img/3.svg'); /* مسار الصورة للزر الثاني */
+    background-position: center; /* لتركيز الصورة في المنتصف */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+
+    opacity: 0.5; /* جعله مغبش */
+    pointer-events: none; /* منع النقر عليه */
+    cursor: not-allowed; /* شكل مؤشر الفأرة */
+}
+
+.button3 {
+    top: 20%;
+    right: 7%;
+    background-image: url('/img/1.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  
+}
+
+    /*.button2.active {
+        opacity: 1;*/ /* إزالة التعتيم */
+        /*pointer-events: auto;*/ /* تمكين النقر */
+        /*cursor: pointer;*/ /* شكل مؤشر عادي */
+    /*}*/
+
+
+
+/* الخلفية المعتمة */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* النافذة المنبثقة */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 70%;
+    display: none;
+    text-align: left;
+}
+
+    .popup h2 {
+        margin-top: 0;
+    }
+
+    .popup p {
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+.options {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.option {
+    text-align: center;
+}
+
+    .option img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+.factors {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.factor-icons img {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+    .popup.active {
+        display: block;
+    }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.option img {
+    width: 100px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: none;
+}
+
+    .popup.active {
+        display: block;
+    }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.selected-image {
+    width: 100px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+    .buttons button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .buttons button.no {
+            background-color: #DC3545;
+        }
+
+
+
+
+button.yes, button.no {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.no {
+    background-color: #F44336;
+    color: white;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+    .popup.active {
+        display: block;
+    }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}

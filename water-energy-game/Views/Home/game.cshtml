@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Climate Adaptation Game";
+}
+<link rel="stylesheet" href="~/css/game.css" asp-append-version="true" />
+
+
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="goal" data-goal="health">
+                <img src="/img/C9aJSTNg.svg" alt="Health">
+                <div class="goal-underline health-underline"></div>
+            </div>
+            <div class="goal" data-goal="water">
+                <img src="/img/CafkMMVf.svg" alt="Water">
+                <div class="goal-underline water-underline"></div>
+            </div>
+            <div class="goal" data-goal="energy">
+                <img src="/img/CIezRw_l.svg" alt="Energy">
+                <div class="goal-underline energy-underline"></div>
+            </div>
+            <div class="goal" data-goal="cities">
+                <img src="/img/CJ5krmnu.svg" alt="Cities">
+                <div class="goal-underline cities-underline"></div>
+            </div>
+            <div class="goal" data-goal="land">
+                <img src="/img/CrtR391G.svg" alt="Land">
+                <div class="goal-underline land-underline"></div>
+            </div>
+        </aside>
+        <div class="content">
+            <div class="top-bar">
+                <div class="info-section">
+                    <img src="/img/avatar.svg" alt="Avatar" class="avatar">
+                    <div class="info-text">
+                        Now it’s time to take our first measures. Click on the icons on the map for information about the different choices. You must make a choice on each mission before you can move forwards in time.
+                    </div>
+                </div>
+                <div class="actions-section">
+                    <button class="action-button settings-btn">
+                        <img src="/img/settings-icon.svg" alt="Settings">
+                    </button>
+                    <button class="action-button menu-btn">
+                        <img src="/img/menu-icon.svg" alt="Menu">
+                    </button>
+                </div>
+            </div>
+
+
+        <div class="map-container">
+            <button class="button button1" onclick="showInitialPopup()"></button>
+            <button class="button button2"></button>
+            <button class="button button3"></button>
+        </div>
+        </div>
+        <div class="details-popup" id="details-popup">
+            <button class="close-btn" id="close-popup">&times;</button>
+            <h2 id="goal-title">Goal Title</h2>
+            <p id="goal-description">Goal description will appear here.</p>
+        </div>
+
+
+    <!-- النافذة الأولى -->
+    <div class="popup" id="popup">
+        <button type="button" class="close-btn" onclick="hidePopup()">&times;</button>
+        <h2 id="popup-title">Densify the city</h2>
+        <p id="popup-description">
+            We need new housing in the city. New housing will increase the flow of new citizens and increase tax revenues.
+            <br><br>
+            If you want to densify the city – how should the housing area be designed?
+            <br><br>
+            Click the different alternatives for more information.
+        </p>
+
+        <!-- الخيارات -->
+        <div class="options">
+            <div class="option" onclick="selectOption('A', 8000, '/img/a.svg', 'Apartment blocks with individual parking. Dark facades.')">
+                <img src="/img/a.svg" alt="Option A">
+                <p>A - 8,000</p>
+            </div>
+            <div class="option" onclick="selectOption('B', 10000, '/img/b.svg', 'Apartment blocks with carpool parking. Bright facades.')">
+                <img src="/img/b.svg" alt="Option B">
+                <p>B - 10,000</p>
+            </div>
+            <div class="option" onclick="selectOption('C', 12000, '/img/c.svg', 'Apartment blocks with community parking.')">
+                <img src="/img/c.svg" alt="Option C">
+                <p>C - 12,000</p>
+            </div>
+            <div class="option" onclick="selectOption('X', 0, '/img/d.jpg', 'Do nothing option.')">
+                <img src="/img/d.jpg" alt="Option X">
+                <p>X - 0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة الجديدة -->
+    <div class="popup" id="new-popup">
+        <button class="close-btn" onclick="hidePopup()">&times;</button>
+        <h2 id="new-popup-title"></h2>
+        <div class="details">
+            <img id="new-popup-image" class="selected-image" src="" alt="Selected Option">
+            <p id="new-popup-description"></p>
+        </div>
+        <p>
+            Do you want to select this alternative?
+            (You can change your choice before stepping forward in time)
+        </p>
+        <!-- أزرار Yes و No -->
+        <div class="buttons">
+            <button class="yes" onclick="handleYes()">Yes</button>
+            <button class="no" onclick="hidePopup()">No</button>
+        </div>
+    </div>
+
+    </div>
+ 
+<script src="~/js/game.js"></script>
