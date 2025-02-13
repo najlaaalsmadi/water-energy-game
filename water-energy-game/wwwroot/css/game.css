@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url('/img/background.png'); /* يمكنك إضافة صورة خلفية هنا */
 }
 
 .main-container {
@@ -196,7 +196,7 @@
 .button {
     position: absolute;
     padding: 30px 30px;
-    background-color: #4CAF50;
+    background-color: skyblue;
     color: white;
     border: none;
     cursor: pointer;
@@ -206,7 +206,7 @@
 .button1 {
     top: 50%;
     left: 2%;
-    background-color: #4CAF50;
+    background-color: skyblue;
     background-image: url('/img/2.svg'); /* مسار الصورة للزر الأول */
     background-position: center; /* لتركيز الصورة في المنتصف */
     background-repeat: no-repeat; /* لمنع تكرار الصورة */
@@ -227,8 +227,8 @@
 }
 
 .button3 {
-    top: 20%;
-    right: 7%;
+    top: 30%;
+    right: 10%;
     background-image: url('/img/1.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -266,7 +266,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    width: 70%;
+    width: 80%;
     display: none;
     text-align: left;
 }
@@ -329,7 +329,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 80%;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -367,7 +367,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 80%;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -443,7 +443,7 @@ button.no {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 80%;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -465,3 +465,35 @@ button.no {
     font-size: 20px;
     cursor: pointer;
 }
+.option.disabled {
+    pointer-events: none; /* تعطيل التفاعل */
+    opacity: 0.5; /* تقليل الشفافية */
+    filter: blur(2px); /* تطبيق تأثير التغبش */
+}
+
+
+/*////////////////////////////////////////////////////////////*/
+.box {
+    width: 100px;
+    height: 120px;
+    background-color: white;
+    border: 2px solid gray;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.top {
+    background-color: lightgray;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bottom {
+    padding: 15px;
+    font-size: 22px;
+    color: blue;
+    font-weight: bold;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/

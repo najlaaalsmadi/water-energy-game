@@ -1,0 +1,73 @@
+﻿.sidebar {
+    width: 200px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wallet, .saved-lives, .income-expenses, .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.wallet-box, .saved-box, .income-box, .footer-box {
+    width: 100%;
+    background: #b5e61d;
+    color: black;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.income-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.income-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+    .income-item img {
+        width: 18px;
+        height: 18px;
+    }
+
+.footer-box {
+    background: #b5e61d;
+    font-weight: bold;
+}
+.footer {
+    display: flex;
+    justify-content: space-between; /* لضبط المسافة بين العناصر */
+    padding: 10px;
+    width: 100%;
+}
+
+    .footer img {
+        width: 20px; /* تعديل الحجم حسب الحاجة */
+    }
+
+.footer-box {
+    display: flex;
+    align-items: center;
+    background: #b5e61d;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    justify-content: space-between; /* يضمن بقاء النص والصورة داخل الـ box */
+    min-width: 80px; /* ضبط عرض المربع */
+    gap: 10px; /* إضافة مسافة بين النص والصورة داخل .footer-box */
+}

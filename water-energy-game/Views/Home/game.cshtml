@@ -2,8 +2,10 @@
     ViewData["Title"] = "Climate Adaptation Game";
 }
 <link rel="stylesheet" href="~/css/game.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Income.css" asp-append-version="true" />
 
-
+<br />
+<br />
 
     <div class="main-container">
         <aside class="sidebar">
@@ -46,11 +48,15 @@
                 </div>
             </div>
 
-
+       
         <div class="map-container">
+            <div class="box">
+                <div class="top">Year</div>
+                <div class="bottom">2020</div>
+            </div>
             <button class="button button1" onclick="showInitialPopup()"></button>
-            <button class="button button2"></button>
-            <button class="button button3"></button>
+            <button class="button button2" ></button>
+            <button class="button button3" onclick="showInitialPopup2()"></button>
         </div>
         </div>
         <div class="details-popup" id="details-popup">
@@ -59,8 +65,90 @@
             <p id="goal-description">Goal description will appear here.</p>
         </div>
 
+    <div class="sidebar">
+        <!-- Wallet Section -->
+        <div class="wallet">
+            <span>Wallet</span>
+            <div class="wallet-box">
+                <span>12,000</span>
+                <img src="/img/coins.svg" alt="Coins" width="20">
+            </div>
+        </div>
 
-    <!-- النافذة الأولى -->
+        <!-- Saved Lives Section -->
+        <div class="saved-lives">
+            <span>Saved lives</span>
+            <div class="saved-box">
+                <img src="/img/smile.svg" alt="Smile" width="18">
+                <span>0 / 0</span>
+            </div>
+        </div>
+
+        <!-- Income and Expenses -->
+        <div class="income-expenses">
+            <span><b>Incomes and expenses</b></span>
+            <span>2020 - 2030</span>
+            <div class="income-list">
+                <div class="income-item">
+                    <img src="/img/income.svg" alt="Income">
+                    <div class="income-box">
+                        <span>12,000</span>
+                        <img src="/img/coins2.svg" alt="Coins" width="16">
+                    </div>
+                </div>
+
+                <div class="income-item">
+                    <img src="/img/tool.svg" alt="Tool">
+                    <span>0</span>
+                    <img src="/img/coins2.svg" alt="Coins" width="16">
+
+                </div>
+
+                <div class="income-item">
+                    <img src="/img/wrench.svg" alt="Wrench">
+                    <span>0</span>
+                    <img src="/img/coins2.svg" alt="Coins" width="16">
+
+                </div>
+
+                <div class="income-item">
+                    <img src="/img/tree.svg" alt="Tree">
+                    <span>?</span>
+                    <img src="/img/coins2.svg" alt="Coins" width="16">
+
+                </div>
+
+                <div class="income-item">
+                    <img src="/img/sun.svg" alt="Sun">
+                    <span>?</span>
+                    <img src="/img/coins2.svg" alt="Coins" width="16">
+
+                </div>
+
+                <div class="income-item">
+                    <img src="/img/rain.svg" alt="Rain">
+                    <span>?</span>
+                    <img src="/img/coins2.svg" alt="Coins" width="16">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="/img/download (3).svg" alt="Coins" width="20">
+            <br />
+            <div class="footer-box">
+               
+
+                <span>12,000</span>
+                <img src="/img/coins2.svg" alt="Coins" width="16">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة الثانية -->
     <div class="popup" id="popup">
         <button type="button" class="close-btn" onclick="hidePopup()">&times;</button>
         <h2 id="popup-title">Densify the city</h2>
@@ -93,13 +181,28 @@
         </div>
     </div>
 
-    <!-- النافذة الجديدة -->
+    <!-- النافذة الجديدة الثانية -->
     <div class="popup" id="new-popup">
         <button class="close-btn" onclick="hidePopup()">&times;</button>
         <h2 id="new-popup-title"></h2>
         <div class="details">
             <img id="new-popup-image" class="selected-image" src="" alt="Selected Option">
             <p id="new-popup-description"></p>
+            <!-- عرض قيمة الأموال -->
+            <img src="/img/tool.svg" alt="Tool" style="width: 40px; height: 40px;">
+            <span id="new-popup-tool-one"></span>
+            <img src="/img/coins2.svg" alt="Coins" width="19">
+
+
+            <img src="/img/wrench.svg" alt="Wrench" style="width: 40px; height: 40px;">
+            <p id="new-popup-wrench-one"></p>
+            <img src="/img/coins2.svg" alt="Coins" width="19">
+
+
+            <img src="/img/income.svg" alt="income" style="width: 40px; height: 40px;">
+            <p id="calculateValue"></p>
+            <img src="/img/coins2.svg" alt="Coins" width="19">
+
         </div>
         <p>
             Do you want to select this alternative?
@@ -112,6 +215,71 @@
         </div>
     </div>
 
+   
+
+    <!-- النافذة الأولى (popup2) -->
+    <div class="popup" id="popup2">
+        <button type="button" class="close-btn" onclick="hidePopup()">&times;</button>
+        <h2 id="popup-title2">Densify the city</h2>
+        <p id="popup-description2">
+            We need new housing in the city. New housing will increase the flow of new citizens and increase tax revenues.
+            <br><br>
+            If you want to densify the city – how should the housing area be designed?
+            <br><br>
+            Click the different alternatives for more information.
+        </p>
+        <!-- الخيارات -->
+        <div class="options">
+            <div class="option" onclick="selectOption2('A2', 500, '/img/a2.svg', 'Apartment blocks with individual parking. Dark facades.')">
+                <img src="/img/a2.svg" alt="Option A2">
+                <p>A2 - 500</p>
+            </div>
+            <div class="option" onclick="selectOption2('B2', 2000, '/img/b2.svg', 'Apartment blocks with carpool parking. Bright facades.')">
+                <img src="/img/b2.svg" alt="Option B2">
+                <p>B2 - 2000</p>
+            </div>
+            <div class="option" onclick="selectOption2('C2', 6000, '/img/c2.svg', 'Apartment blocks with community parking.')">
+                <img src="/img/c2.svg" alt="Option C2">
+                <p>C2 - 6,000</p>
+            </div>
+            <div class="option" onclick="selectOption2('X2', 0, '/img/d.jpg', 'Do nothing option.')">
+                <img src="/img/d.jpg" alt="Option X2">
+                <p>X2 - 0</p>
+            </div>
+        </div>
     </div>
- 
+
+    <!-- النافذة الثانية (new-popup2) لتأكيد الاختيار -->
+    <div class="popup" id="new-popup2">
+        <button class="close-btn" onclick="hidePopup()">&times;</button>
+        <h2 id="new-popup-title2"></h2>
+        <div class="details">
+            <img id="new-popup-image2" class="selected-image" src="" alt="Selected Option">
+            <p id="new-popup-description2"></p>
+
+            <!-- عرض قيمة الأموال -->
+            <img src="/img/tool.svg" alt="Tool" style="width: 40px; height: 40px;">
+            <span id="new-popup-tool"></span>
+            <img src="/img/coins2.svg" alt="Coins" width="19">
+
+
+            <img src="/img/wrench.svg" alt="Wrench" style="width: 40px; height: 40px;">
+            <p id="new-popup-wrench"></p>
+            <img src="/img/coins2.svg" alt="Coins" width="19">
+
+
+            
+
+        </div>
+        <p>Do you want to select this alternative? (You cannot change your selection later.)</p>
+        <!-- أزرار Yes و No -->
+        <div class="buttons">
+            <button class="yes" onclick="handleYes2()">Yes</button>
+            <button class="no" onclick="hidePopup()">No</button>
+        </div>
+    </div>
+
+
+    </div>
+<script src="~/js/updateWallet.js"></script>
 <script src="~/js/game.js"></script>
