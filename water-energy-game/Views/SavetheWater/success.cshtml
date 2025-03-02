@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Save the Water!";
+}
+<link rel="stylesheet" href="~/css/Twogame/success.css" asp-append-version="true" />
+
+
+
+
+<table id="table1">
+    <tr>
+        <td id="column1">
+            <h1>GOOD JOB!</h1>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <div class="bubble">
+                <table>
+                    <tr>
+                        <td width="100%">
+                            <p class="text1">
+                                &nbsp; &nbsp; Awesome job! Cheru's family now has water - but it
+                                <br> &nbsp; &nbsp; won't last them for long. One trip is barely enough for
+                                <br> &nbsp; &nbsp; Cheru to make a kettle of tea. <br><br>
+                            </p>
+                        </td>
+                        <td valign="top">
+                            <img src="~/img/fam.png" id="sigh" height="450">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="margin-left:1.5%;width:100%;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <button id="CTA" onclick="window.location='/SavetheWater/game'">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="~/img/refresh.png" height="21" style="margin-right:10px">
+                                                        </td>
+                                                        <td id="replaytext">REPLAY</td>
+                                                    </tr>
+                                                </table>
+
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button id="CTA2" onclick="window.location='/Home/Index'" style="margin-left:8%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="~/img/home.png" height="23" style="margin-right:10px">
+                                                        </td>
+                                                        <td id="replaytext">HOME</td>
+                                                    </tr>
+                                                </table>
+                                            </button>
+                                        </td>
+                              
+                                        <td>
+                                            <audio controls autoplay>
+                                                <source src="~/Sound/yay.mp3" type="audio/mpeg">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>

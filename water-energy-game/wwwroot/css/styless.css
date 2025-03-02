@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    background-image: url('/img/background.png'); /* يمكنك إضافة صورة خلفية هنا */
+    background-image: url('/img/background1.png'); /* يمكنك إضافة صورة خلفية هنا */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,8 @@ body {
     justify-content: center; /* توسيط أفقي */
     align-items: center; /* توسيط عمودي */
     margin: 0; /* إزالة الهوامش الافتراضية */
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 /* القائمة الرئيسية */

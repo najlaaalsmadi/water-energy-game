@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Save Water & Energy Game";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/ElectricityIndexstyle.css" asp-append-version="true" />
+
+<audio id="bg-music" src="/Sound/backgroundmusic.mp3" loop></audio>
+<audio id="collect-water" src="/Sound/Water Drop Sound.mp3"></audio>
+<audio id="collect-energy" src="/Sound/Energy Sound.mp3"></audio>
+<audio id="error-sound" src="~/Sound/Buzzer Sound.mp3"></audio>
+
+<div id="game-container">
+    <img id="player" src="~/img/game4/r.png" alt="Player">
+    <div id="score">Water: <span id="water-score">0</span> | Energy: <span id="energy-score">0</span></div>
+    <div id="level">Level: <span id="level-count">1</span></div>
+    <div id="timer">Time: <span id="timer-count">30</span></div>
+    <div id="message"></div>
+</div>
+
+<!-- نافذة النهاية -->
+<div id="game-over-popup">
+    <h2>Game Over!</h2>
+    <p id="final-score"></p>
+    <button id="restart-btn">Play Again</button>
+</div>
+
+<script src="~/js/ElectricityIndexjs.js"></script>

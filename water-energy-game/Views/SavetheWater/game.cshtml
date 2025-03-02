@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Save the Water!";
+}
+<link rel="stylesheet" href="~/css/Twogame/game.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!--An invisble div to retrieve the images of the game-->
+<div id="images">
+    <img src="~/img/character.png" id="character">
+    <img src="~/img/charactercrouch.png" id="crouch">
+    <img src="~/img/characterjump.png" id="jump">
+    <!--Obstacle images-->
+    <img src="~/img/tumbleweed.png" id="tumbleweed">
+    <img src="~/img/bird.png" id="bird">
+    <img src="~/img/bird2.png" id="bird2">
+
+    <!--house image for the end of a Level-->
+    <img src="~/img/house.png" id="house">
+</div>
+
+<div>
+
+    <table class="w-100" style="position:absolute; z-index:2;">
+        <tr>
+            <td>
+
+                <div class="bubble">
+                    <p class="text temperature"></p>
+                    <p class="text distance"></p>
+                    <p class="text water"><strong></strong></p>
+
+                </div>
+
+                <!--Health bar-->
+                <div style="z-index: 3;">
+                    <div class="area">
+                        <div class="total"></div>
+                        <div class="health-box">
+                            <div class="health-bar-red"></div>
+                            <div class="health-bar-blue"></div>
+                            <div class="health-bar"></div>
+                            <div class="health-bar-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <audio controls autoplay style="margin-top:5%;">
+                    <source src="~/Sound/gameMusic.mp3" type="audio/mpeg">
+                </audio>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="container" style="z-index:1">
+    <div class="row">
+        <!--The canvas will be where the game is played-->
+        <canvas class="col-12 p-0" id="canvas"></canvas>
+    </div>
+</div>
+
+<script src="~/js/runningGame.js" asp-append-version="true"></script>

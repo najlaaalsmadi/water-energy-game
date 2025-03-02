@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Save the Water!";
+}
+<link rel="stylesheet" href="~/css/Twogame/gameover.css" asp-append-version="true" />
+
+
+<table id="table1">
+    <tr>
+        <td id="column1">
+            <h1>
+                GAME OVER!
+            </h1>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <!-- Card Divider of Information -->
+            <div class="bubble">
+                <table>
+                    <tr>
+                        <td>
+                            <p class="text1">
+                                &nbsp;&nbsp; You lost all of your water! Cheru will have to walk back
+                                <br> &nbsp;&nbsp; and start from the beginning 😢 <br><br>
+                            </p>
+                            <p class="text1">
+                                &nbsp;&nbsp; Even though Cheru can restart, this isn't the case for over
+                                <br>&nbsp;&nbsp; <span style="font-weight:600;">700 million people </span> who can't access clean water.
+                            </p>
+                            <p class="text1">
+                                &nbsp;&nbsp; Water is a <span style="font-weight:600;">precious</span> resource that those in developed
+                                <br> &nbsp;&nbsp; countries take for granted, but as climate change
+                                <br> &nbsp;&nbsp; progresses and our population grows, even states such as
+                                <br> &nbsp;&nbsp; <span style="font-weight:600;">California</span> struggle with having sufficient water. <br><br>
+                            </p>
+                            <p class="text1">
+                                &nbsp;&nbsp; Conserve water, and donate towards organizations like
+                                <br> &nbsp;&nbsp; <a href="https://generosity.org/"> Generosity.org </a> to help make sure no one else has to walk
+                                <br> &nbsp;&nbsp; 6000m for their right to live.
+                            </p>
+                        </td>
+                        <td valign="top">
+                            <img src="~/img/sigh.png" id="sigh" height="500">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p style="margin-left:1.25%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <button id="CTA" onclick="window.location='/SavetheWater/game'">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="~/img/refresh.png" height="21" style="margin-right:10px">
+                                                        </td>
+                                                        <td id="replaytext">
+                                                            REPLAY
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button id="CTA2" onclick="window.location='SavetheWater/indexgame'" style="margin-left:8%">
+                                                <table>
+
+                                                    <tr>
+                                                        <td>
+                                                            <img src="~/img/home.png" height="23" style="margin-right:10px">
+                                                        </td>
+                                                        <td id="replaytext">
+                                                            HOME
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </button>
+                                        </td>
+                                      
+                                        <td>
+                                            <audio controls autoplay>
+                                                <source src="~/Sound/gameover.mp3" type="audio/mpeg">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+

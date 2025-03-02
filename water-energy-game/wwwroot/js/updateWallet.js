@@ -1,223 +1,182 @@
-﻿//// تحديث القيم بناءً على الاختيارات من localStorage
-//function updateWalletAndExpenses() {
-//    let wallet = parseInt(document.querySelector(".wallet-box span").textContent.replace(',', '')) || 12000;
-//    let toolCost = 0;
-//    let wrenchCost = 0;
-//    let totalIncome = 12000; // المجموع الأساسي قبل التعديلات
-//    let totalExpenses = 0;
-
-//    // جلب القيم من localStorage
-//    let selectedOptionData = JSON.parse(localStorage.getItem("selectedOptionData_popup")) || { value: 0 };
-//    let selectedOptionData2 = JSON.parse(localStorage.getItem("selectedOptionData_popup2")) || { value: 0 };
-//    let selectedOption = localStorage.getItem("selectedOption_popup");
-//    let selectedOption2 = localStorage.getItem("selectedOption_popup2");
-//    let wrenchValue1 = parseInt(localStorage.getItem("wrenchValueKey")) || 0;
-//    let wrenchValue2 = parseInt(localStorage.getItem("wrenchValueKey2")) || 0;
-//    let calculateValue = parseInt(localStorage.getItem("calculateValue")) || 0;
-
-//    if (selectedOptionData) {
-//        wallet -= selectedOptionData.value;
-//        toolCost += calculateValue;
-//        totalExpenses += selectedOptionData.value;
-//    }
-//    if (selectedOptionData2) {
-//        wallet -= selectedOptionData2.value;
-//        wrenchCost -= wrenchValue2;
-//        totalExpenses += selectedOptionData2.value;
-//    }
-
-//    // تحديث إجمالي الدخل والمصاريف بناءً على التعديلات
-//    totalIncome += toolCost; // إضافة الأدوات كمصدر دخل
-//    let finalAmount = totalIncome - Math.abs(totalExpenses);
-
-//    // تحديث القيم في الواجهة
-//    document.querySelector(".wallet-box span").textContent = wallet.toLocaleString();
-//    document.querySelector(".income-item:nth-child(2) span").textContent = toolCost;
-//    document.querySelector(".income-item:nth-child(3) span").textContent = wrenchCost;
-//    document.querySelector(".income-item:nth-child(4) span").textContent = `-${totalExpenses}`;
-
-//    // تحديث القيمة النهائية في الأسفل
-//    document.querySelector(".footer-box span").textContent = finalAmount.toLocaleString();
-
-//    // تفعيل أو تعطيل الزر بناءً على القيم المختارة
-//    let button2 = document.querySelector(".button2");
-//    if (["A", "B", "C", "D"].includes(selectedOption) && ["A2", "B2", "C2", "D2"].includes(selectedOption2)) {
-//        button2.style.opacity = "1";
-//        button2.style.pointerEvents = "auto";
-//        button2.style.cursor = "pointer";
-//    } else {
-//        button2.style.opacity = "0.5";
-//        button2.style.pointerEvents = "none";
-//        button2.style.cursor = "not-allowed";
-//    }
-//}
-
-//// تحديث القيم فورًا عند تغيير localStorage
-//window.addEventListener("storage", updateWalletAndExpenses);
-
-//// عند تحميل الصفحة يتم تحديث القيم تلقائيًا
-//document.addEventListener("DOMContentLoaded", updateWalletAndExpenses);
-
-//// عند اختيار خيار معين
-//function selectOption(option, value) {
-//    localStorage.setItem("selectedOption_popup", option);
-//    updateWalletAndExpenses();
-//}
-
-//// عند الضغط على الزر .button2 يتم فتح النوافذ وتحديث البيانات وتغيير السنة إلى 2030
-//document.querySelector(".button2").addEventListener("click", function () {
-//    // تعطيل الزر بعد الضغط عليه
-//    this.disabled = true;
-//    this.style.opacity = "0.5";
-//    this.style.pointerEvents = "none";
-//    this.style.cursor = "not-allowed";
-
-//    // إنشاء النوافذ كـ popups وإضافتها إلى الصفحة
-//    let newsPopup1 = document.createElement("div");
-//    newsPopup1.className = "popup news-popup";
-//    newsPopup1.innerHTML = `
-//        <div class='popup-content'>
-//            <h2>CROPS WITHERING</h2>
-//            <p>Farmers are complaining about the drought that is currently affecting Weatherton...</p>
-//            <button onclick='this.parentElement.parentElement.remove()'>Close</button>
-//        </div>`;
-//    document.body.appendChild(newsPopup1);
-
-//    let newsPopup2 = document.createElement("div");
-//    newsPopup2.className = "popup news-popup";
-//    newsPopup2.innerHTML = `
-//        <div class='popup-content'>
-//            <h2>HALF OF HARVEST WIPED OUT!</h2>
-//            <p>A long drought has affected Weatherton...</p>
-//            <button onclick='this.parentElement.parentElement.remove()'>Close</button>
-//        </div>`;
-//    document.body.appendChild(newsPopup2);
-
-//    let summaryPopup = document.createElement("div");
-//    summaryPopup.className = "popup summary-popup";
-//    summaryPopup.innerHTML = `
-//        <div class='popup-content'>
-//            <h2>Summary 2020 to 2030</h2>
-//            <p>Extreme weather conditions occurred...</p>
-//            <button onclick='this.parentElement.parentElement.remove()'>Close</button>
-//        </div>`;
-//    document.body.appendChild(summaryPopup);
-
-//    // تغيير السنة إلى 2030 في العنصر الصحيح
-//    document.querySelector(".box .bottom").textContent = "2030";
-
-
-//    // تحديث القيم بعد تغيير العام
-//    updateWalletAndExpenses();
-//});
-
-
-
-
-/*///////////////////////////////////////////////////// */
-// تحديث القيم بناءً على الاختيارات من localStorage
-function updateWalletAndExpenses() {
-    let wallet = parseInt(document.querySelector(".wallet-box span").textContent.replace(',', '')) || 12000;
-    let toolCost = 0;
-    let wrenchCost = 0;
-    let totalIncome = 12000; // المجموع الأساسي قبل التعديلات
+﻿function updateWalletAndExpenses() {
+    let initialWallet = 12000;
+    let wallet = initialWallet;
+    let totalIncome = initialWallet;
     let totalExpenses = 0;
+    let toolCost = 0;
 
-    // جلب القيم من localStorage
-    let selectedOptionData = JSON.parse(localStorage.getItem("selectedOptionData_popup"));
-    let selectedOptionData2 = JSON.parse(localStorage.getItem("selectedOptionData_popup2"));
-    let selectedOption = localStorage.getItem("selectedOption_popup");
-    let selectedOption2 = localStorage.getItem("selectedOption_popup2");
+    let selectedOptionData = JSON.parse(localStorage.getItem("selectedOptionData_popup")) || { value: 0 };
+    let selectedOptionData2 = JSON.parse(localStorage.getItem("selectedOptionData_popup2")) || { value: 0 };
     let wrenchValue1 = parseInt(localStorage.getItem("wrenchValueKey")) || 0;
     let wrenchValue2 = parseInt(localStorage.getItem("wrenchValueKey2")) || 0;
-    let calculateValue = parseInt(localStorage.getItem("calculateValue")) || 0;
+    let selectedOption = localStorage.getItem("selectedOption_popup") || "";
+    let selectedOption2 = localStorage.getItem("selectedOption_popup2") || "";
 
-    if (selectedOptionData) {
-        wallet -= selectedOptionData.value;
-        toolCost += calculateValue;
-        totalExpenses += selectedOptionData.value;
-    }
-    if (selectedOptionData2) {
-        wallet -= selectedOptionData2.value;
-        wrenchCost -= wrenchValue2;
-        totalExpenses += selectedOptionData2.value;
-    }
+    totalExpenses = selectedOptionData.value + selectedOptionData2.value + wrenchValue1 + wrenchValue2;
+    wallet -= totalExpenses;
+    totalIncome += toolCost;
+    let finalAmount = totalIncome - totalExpenses;
 
-    // تحديث إجمالي الدخل والمصاريف بناءً على التعديلات
-    totalIncome += toolCost; // إضافة الأدوات كمصدر دخل
-    let finalAmount = totalIncome - Math.abs(totalExpenses);
-
-    // تحديث القيم في الواجهة
     document.querySelector(".wallet-box span").textContent = wallet.toLocaleString();
     document.querySelector(".income-item:nth-child(2) span").textContent = toolCost;
-    document.querySelector(".income-item:nth-child(3) span").textContent = wrenchCost;
-    document.querySelector(".income-item:nth-child(4) span").textContent = `-${totalExpenses}`;
-
-    // تحديث القيمة النهائية في الأسفل
+    document.querySelector(".income-item:nth-child(3) span").textContent = `-${Math.abs(wrenchValue1 + wrenchValue2)}`;
+    document.querySelector(".income-item:nth-child(4) span").textContent = `-${Math.abs(totalExpenses)}`;
     document.querySelector(".footer-box span").textContent = finalAmount.toLocaleString();
 
-    // تفعيل أو تعطيل الزر بناءً على القيم المختارة
+    let wallet2 = initialWallet - selectedOptionData2.value;
+    document.getElementById("Wallet2").textContent = wallet2.toLocaleString();
+
     let button2 = document.querySelector(".button2");
-    if (["A", "B", "C", "D"].includes(selectedOption) && ["A2", "B2", "C2", "D2"].includes(selectedOption2)) {
+    let button1 = document.querySelector(".button1");
+    let button3 = document.querySelector(".button3");
+
+    if (selectedOption && selectedOption2) {
         button2.style.opacity = "1";
         button2.style.pointerEvents = "auto";
         button2.style.cursor = "pointer";
+        button1.style.backgroundColor = "green";
+        button3.style.backgroundColor = "green";
     } else {
         button2.style.opacity = "0.5";
         button2.style.pointerEvents = "none";
         button2.style.cursor = "not-allowed";
+        button1.style.backgroundColor = "gray";
+        button3.style.backgroundColor = "gray";
     }
 }
 
-// تحديث القيم فورًا عند تغيير localStorage
 window.addEventListener("storage", updateWalletAndExpenses);
-
-// عند تحميل الصفحة يتم تحديث القيم تلقائيًا
 document.addEventListener("DOMContentLoaded", updateWalletAndExpenses);
 
-// عند اختيار خيار معين
-function selectOption(option, value) {
-    localStorage.setItem("selectedOption_popup", option);
+document.querySelector(".button2").addEventListener("click", function () {
+    showSweetAlertSequence();
     updateWalletAndExpenses();
-}
+});
 
-// عند الضغط على الزر .button2 يتم فتح النوافذ وتحديث البيانات وتغيير السنة إلى 2030 لمرة واحدة
-function handleButtonClick() {
-    if (!document.querySelector(".popup-container")) {
-        let popupContainer = document.createElement("div");
-        popupContainer.className = "popup-container";
-        popupContainer.innerHTML = `
-            <div class='popup'>
-                <h2>CROPS WITHERING</h2>
-                <p>Farmers are complaining about the drought that is currently affecting Weatherton...</p>
-                <button onclick='this.parentElement.remove()'>Close</button>
-            </div>
-            <div class='popup'>
-                <h2>HALF OF HARVEST WIPED OUT!</h2>
-                <p>A long drought has affected Weatherton...</p>
-                <button onclick='this.parentElement.remove()'>Close</button>
-            </div>
-            <div class='popup'>
-                <h2>Summary 2020 to 2030</h2>
-                <p>Extreme weather conditions occurred...</p>
-                <button onclick='this.parentElement.remove()'>Close</button>
-            </div>
-        `;
-        document.body.appendChild(popupContainer);
-    }
+function updateWalletAndExpenses() {
+    let initialWallet = 12000;
+    let wallet = initialWallet;
+    let totalIncome = initialWallet;
+    let totalExpenses = 0;
+    let toolCost = 0;
 
-    // تغيير السنة إلى 2030 في العنصر الصحيح
-    document.querySelector(".box .bottom").textContent = "2030";
-    updateWalletAndExpenses();
+    let selectedOptionData = JSON.parse(localStorage.getItem("selectedOptionData_popup")) || { value: 0 };
+    let selectedOptionData2 = JSON.parse(localStorage.getItem("selectedOptionData_popup2")) || { value: 0 };
+    let wrenchValue1 = parseInt(localStorage.getItem("wrenchValueKey")) || 0;
+    let wrenchValue2 = parseInt(localStorage.getItem("wrenchValueKey2")) || 0;
+    let selectedOption = localStorage.getItem("selectedOption_popup") || "";
+    let selectedOption2 = localStorage.getItem("selectedOption_popup2") || "";
 
-    // تعطيل الزر بعد الضغط عليه مرة واحدة
+    totalExpenses = selectedOptionData.value + selectedOptionData2.value + wrenchValue1 + wrenchValue2;
+    wallet -= totalExpenses;
+    totalIncome += toolCost;
+    let finalAmount = totalIncome - totalExpenses;
+
+    document.querySelector(".wallet-box span").textContent = wallet.toLocaleString();
+    document.querySelector(".income-item:nth-child(2) span").textContent = toolCost;
+    document.querySelector(".income-item:nth-child(3) span").textContent = `-${Math.abs(wrenchValue1 + wrenchValue2)}`;
+    document.querySelector(".income-item:nth-child(4) span").textContent = `-${Math.abs(totalExpenses)}`;
+    document.querySelector(".footer-box span").textContent = finalAmount.toLocaleString();
+
+    let wallet2 = initialWallet - selectedOptionData2.value;
+    document.getElementById("Wallet2").textContent = wallet2.toLocaleString();
+
     let button2 = document.querySelector(".button2");
-    button2.style.opacity = "0.5";
-    button2.style.pointerEvents = "none";
-    button2.style.cursor = "not-allowed";
-    button2.removeEventListener("click", handleButtonClick);
+    let button1 = document.querySelector(".button1");
+    let button3 = document.querySelector(".button3");
+
+    if (selectedOption && selectedOption2) {
+        button2.style.opacity = "1";
+        button2.style.pointerEvents = "auto";
+        button2.style.cursor = "pointer";
+        button1.style.backgroundColor = "green";
+        button3.style.backgroundColor = "green";
+    } else {
+        button2.style.opacity = "0.5";
+        button2.style.pointerEvents = "none";
+        button2.style.cursor = "not-allowed";
+        button1.style.backgroundColor = "gray";
+        button3.style.backgroundColor = "gray";
+    }
 }
 
-document.querySelector(".button2").addEventListener("click", handleButtonClick);
+window.addEventListener("storage", updateWalletAndExpenses);
+document.addEventListener("DOMContentLoaded", updateWalletAndExpenses);
 
+document.querySelector(".button2").addEventListener("click", function () {
+    showSweetAlertSequence();
+});
+
+function showSweetAlertSequence() {
+    let alerts = [
+        { title: "WEATHERTON TRIBUNE", text: "THE HEAT IS HERE TO STAY\nlasting for three days...", icon: "info", imageUrl: "../../img/sun.svg" },
+        { title: "WEATHERTON TRIBUNE", text: "SPORTS CELEB DIES\nWeatherthon’s asphalt soft proved too much...", icon: "warning", imageUrl: "../../img/sad.svg" },
+        { title: "WEATHERTON TRIBUNE", text: "THE RAINS CONTINUE\nResidents of the Drydale area complained...", icon: "info", imageUrl: "../../img/tree.svg" },
+        { title: "Summary 2020 to 2030", text: "Extreme weather\nDuring the period, the following extreme weather occurred...", icon: "info", imageUrl: "" },
+        { title: "Summary 2020 to 2030", text: "Results\nSaved lives: 0 / 1. The global goals were affected...", icon: "error", imageUrl: "" }
+    ];
+
+    let index = 0;
+    function showNextAlert() {
+        if (index >= alerts.length) {
+            proceedAfterAlerts();
+            return;
+        }
+        Swal.fire({
+            title: alerts[index].title,
+            text: alerts[index].text,
+            icon: alerts[index].icon,
+            imageUrl: alerts[index].imageUrl,
+            imageWidth: 100,
+            imageHeight: 100,
+            confirmButtonText: "Next"
+        }).then(() => {
+            index++;
+            showNextAlert();
+        });
+    }
+    showNextAlert();
+}
+
+function proceedAfterAlerts() {
+    let button2 = document.querySelector(".button2");
+    button2.style.filter = "blur(5px)";
+    button2.style.pointerEvents = "none";
+    showNewButtons();
+    updateWalletAndExpenses();
+    updateYearTo2030();
+}
+
+function showNewButtons() {
+    let newButtonsContainer = document.createElement("div");
+    newButtonsContainer.className = "new-buttons-container";
+    newButtonsContainer.innerHTML = `
+        <button class="new-button1" onclick="handleNewButton1()">New Action 1</button>
+        <button class="new-button2" onclick="handleNewButton2()">New Action 2</button>
+    `;
+    document.body.appendChild(newButtonsContainer);
+}
+
+function updateYearTo2030() {
+    let yearElement = document.querySelector(".year-box span");
+    if (yearElement) {
+        yearElement.textContent = "2030";
+    }
+}
+
+function handleNewButton1() {
+    Swal.fire({
+        title: "New Action 1 Executed",
+        text: "This action has been performed successfully!",
+        icon: "success"
+    });
+}
+
+function handleNewButton2() {
+    Swal.fire({
+        title: "New Action 2 Executed",
+        text: "Another action has been performed!",
+        icon: "success"
+    });
+}
 

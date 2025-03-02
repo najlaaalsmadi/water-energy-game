@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Save the Water!";
+}
+<link rel="stylesheet" href="~/css/Twogame/instructions.css" asp-append-version="true" />
+
+    <table>
+        <tr>
+            <td id="column1">
+                <h1>
+                    INSTRUCTIONS
+                </h1>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Card Divider of Information -->
+                <div class="bubble">
+                    <table style="margin-left:0;">
+                        <tr>
+                            <td valign="top" width="100px" style="text-align:center;">
+                            <a href="/SavetheWater/story"> <img src="~/img/back.png" width="50px"></a> &nbsp; &nbsp;
+                            </td>
+                            <td>
+                                <p class="text1">
+                                    &nbsp; &nbsp; Your job is to help Cheru bring the water <br> &nbsp; &nbsp; home ASAP before it disappears!<br><br>
+                                </p>
+                                <p class="text1">
+                                    &nbsp; &nbsp; Use the ↑ arrow key to jump over tumbleweeds, <br> &nbsp; &nbsp; and the ↓ arrow key to dodge birds.<br><br>
+                                </p>
+                                <p class="text1">
+                                    &nbsp; &nbsp; Be careful - the more obstacles Cheru <br> &nbsp; &nbsp; bumps into, the more water she loses!
+                                </p>
+                                <p class="text">
+                                <button id="CTA" onclick="window.location='game'">
+                                        START RUNNING!
+                                    </button>
+                                <button id="SKIP" onclick="window.location='indexgame'">
+                                        NOT YET
+                                    </button>
+                                </p>
+
+                            </td>
+                            <td>
+                                <img id="jump" src="~/img/success.png" height="400px">
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+

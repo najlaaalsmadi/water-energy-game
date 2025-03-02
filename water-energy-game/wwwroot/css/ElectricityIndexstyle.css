@@ -1,0 +1,135 @@
+﻿/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url("/img/game4/18.png");
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#game-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    background: url("~/img/game4/18.png") no-repeat center center;
+    background-size: cover;
+    border: 5px solid #ecf0f1;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#player {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item {
+    width: 80px;*/ /* تكبير حجم العناصر */
+    /*height: 80px;
+    position: absolute;
+}
+
+#score, #level, #timer {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#message {
+    color: yellow;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#restart-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+}*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url("/img/game4/18.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+#game-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+    border: 5px solid #ecf0f1;
+}
+
+#player {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+}
+
+#score, #level, #timer {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#message {
+    color: yellow;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* تصميم نافذة النهاية */
+#game-over-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+#restart-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

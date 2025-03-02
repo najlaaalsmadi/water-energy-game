@@ -17,6 +17,10 @@ namespace water_energy_game.Controllers
         {
             return View();
         }
+        public IActionResult oneGame()
+        {
+            return View();
+        }
         public IActionResult game()
         {
             return View();

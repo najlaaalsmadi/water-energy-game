@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../img/background.jpg");
+    background-size: cover;
+    background-position: 20% 70%;
+    color: #043C5B;
+    display: flex;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'Podkova', serif;
+    font-size: 96px;
+    margin-bottom: 3%;
+    margin-top: 0;
+}
+
+#table1 {
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.bubble {
+    background-color: #FFECE9;
+    padding: 4%;
+    padding-top: 2%;
+    border-radius: 9px;
+    width: 1325px;
+    box-shadow: 30px 30px #043C5B;
+    gap: 5px;
+}
+
+#CTA, #CTA2, #SKIP {
+    padding: 8%;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    transition: 0.3s;
+    border: none;
+    margin: 0 20px;
+}
+
+#CTA {
+    background-color: skyblue;
+    color: #FFECE9;
+}
+
+    #CTA:hover {
+        background-color: navy;
+    }
+
+#CTA2 {
+    background-color: #043C5B;
+    color: #FFECE9;
+}
+
+    #CTA2:hover {
+        background-color: #022233;
+    }
+
+#SKIP {
+    padding: 4.2%;
+    border-color: #043C5B;
+    background-color: inherit;
+    color: inherit;
+    border-width: 2px;
+}
+
+    #SKIP:hover {
+        background-color: #B2C8D1;
+        color: #022031;
+    }
+
+#sigh {
+    margin-left: 10%;
+}
+
+audio {
+    margin-left: 20%;
+}
